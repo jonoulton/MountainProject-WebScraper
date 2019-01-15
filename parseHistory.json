@@ -1,0 +1,6 @@
+{
+    "https://www.mountainproject.com/route-guide": {
+        "type": "area",
+        "parsedForUrls": false,
+        "parsedForData": false
+    }
