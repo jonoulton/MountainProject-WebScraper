@@ -22,13 +22,15 @@ Route Information saved during parsing includes: name, urls (main page, vote pag
 
 ## Known Issues
 
-(1) Probably the most serious bug is that the errors encountered during parsing are all eaten, instead of being saved somewhere. There are a number of try/except blocks that need serious improvement. None of them effectively solve the errors, they just prevent the program from crashing. Most errors come up if beautiful soup tried to access an element of the page that is not present.
+(1) The get_text_fields method does not work for routes at all. It does not work properly for areas (only stores one field total, and does not identify that field).
 
-(2) The program must be manually restarted each time it completes, which is ~10-15 times to capture all the data on mountainproject.com. It would be nice if this were automated to restart if there were new routes/areas added during the most recent iteration
+(2) Probably the most serious bug is that the errors encountered during parsing are all eaten, instead of being saved somewhere. There are a number of try/except blocks that need serious improvement. None of them effectively solve the errors, they just prevent the program from crashing. Most errors come up if beautiful soup tried to access an element of the page that is not present.
 
-(3) Mixed, ice, aid and bouldering climbing grades are not parsed correctly. Currently, this must be done in post-processing.
+(3) The program must be manually restarted each time it completes, which is ~10-15 times to capture all the data on mountainproject.com. It would be nice if this were automated to restart if there were new routes/areas added during the most recent iteration
 
-(4) There are some area and route links (<50) on mountainproject.com that are present on pages, but then do not link to an actual page (404 error). These end up not having their "parsedForUrls" and "parsedForData" fields marked as "True" in the "parseHistory.json" file, and thus the program will never quite finish completely. An exception should be added for this type of error to change the area/route type to "error" or "404" in the "parseHistory.json" file, and their "parsedFor..." fields marked as true so they are no longer considered.
+(4) Mixed, ice, aid and bouldering climbing grades are not parsed correctly. Currently, this must be done in post-processing.
+
+(5) There are some area and route links (<50) on mountainproject.com that are present on pages, but then do not link to an actual page (404 error). These end up not having their "parsedForUrls" and "parsedForData" fields marked as "True" in the "parseHistory.json" file, and thus the program will never quite finish completely. An exception should be added for this type of error to change the area/route type to "error" or "404" in the "parseHistory.json" file, and their "parsedFor..." fields marked as true so they are no longer considered.
 
 ## Ethical Considerations
 
